@@ -1,0 +1,20 @@
+settings:
+  # Maximum distance between users to receive messages.
+  maximum-distance-to-receive: 30
+  # Bypass maximum distance if message starts with this prefix
+  # Permission: proximitychat.global
+  global-prefix: "!"
+  # Cancel the sending of a message if no one can hear it 
+  # Disable if there is incompatibility with plugins that require the user to send messages in the chat
+  cancel-message: true
+
+messages:
+  # Leave null or empty to disable it.
+  no-reader: "&cNobody can hear you, nobody is near you."
+  # Spy format for staffs
+  # Permission: proximitychat.spy
+  # Variables: {format} {player} {message}
+  spy-format: "&d&lSPY&r &7\u00bb &a{player}: &7{message}"
+  # Global messages will start with this prefix.
+  # Variables: {format} {player} {message}
+  global-format: "&6&lG&r &7\u00bb &r{format}"
