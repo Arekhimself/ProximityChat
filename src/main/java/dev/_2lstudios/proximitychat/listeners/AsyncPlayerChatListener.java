@@ -54,8 +54,10 @@ public class AsyncPlayerChatListener implements Listener {
             final Iterator<Player> iterator = e.getRecipients().iterator();
             while (iterator.hasNext()) {
                 final Player recipient = iterator.next();
-                if (recipient.getLocation().distance(e.getPlayer().getLocation()) > chatDistance) {
-                    iterator.remove();
+                if (recipient.getWorld() == e.getPlayer().getWorld()) {
+                    if (recipient.getLocation().distance(e.getPlayer().getLocation()) > chatDistance) {
+                        iterator.remove();
+                    }
                 }
             }
         }
