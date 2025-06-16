@@ -1,4 +1,4 @@
-package dev._2lstudios.proximitychat.listeners;
+spackage dev._2lstudios.proximitychat.listeners;
 
 import java.util.Iterator;
 
@@ -58,12 +58,14 @@ public class AsyncPlayerChatListener implements Listener {
                     if (recipient.getLocation().distance(e.getPlayer().getLocation()) > chatDistance) {
                         iterator.remove();
                     }
+                } else {
+                    iterator.remove();
                 }
             }
         }
 
         if (e.getRecipients().size() == 1 && this.noReaderMessage != null && !this.noReaderMessage.isEmpty()) {
-            e.getPlayer().sendMessage(this.noReaderMessage);
+            e.getPlayer().sendMessage(this.noReaderMessage.replace("{message}", e.getMessage()).replace("{player}", e.getPlayer().getName()));
             if (this.cancelMessage) {
                 e.setCancelled(true);
             }
@@ -71,8 +73,7 @@ public class AsyncPlayerChatListener implements Listener {
 
         for (final Player player : this.plugin.getServer().getOnlinePlayers()) {
             if (!e.getRecipients().contains(player) && player.hasPermission("proximitychat.spy")) {
-                player.sendMessage(this.spyFormat.replace("{message}", e.getMessage()).replace("{player}",
-                        e.getPlayer().getName()));
+                player.sendMessage(this.spyFormat.replace("{message}", e.getMessage()).replace("{player}", e.getPlayer().getName()));
             }
         }
     }
