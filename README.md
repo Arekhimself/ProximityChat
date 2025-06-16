@@ -1,3 +1,3 @@
-# Bukkit Boilerplate
-
-Sample project to create Plugins for Bukkit.
+All credits to ArkFlame
+https://github.com/ArkFlame/ProximityChat
+just adding small improvement for my usage.
